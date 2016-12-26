@@ -1,4 +1,4 @@
-param([Parameter(Mandatory=$True, Position=1)] $Uri, [Parameter(Mandatory=$True, Position=2)] $OutFile)
+param([Parameter(Mandatory=$True, Position=0)] $Uri, [Parameter(Mandatory=$True, Position=1)] $OutFile)
 
 # Avoid to continue if an error occurred
 trap {
