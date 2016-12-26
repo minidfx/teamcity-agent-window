@@ -9,10 +9,12 @@ ENV TEAMCITY_SERVER "<your server url>"
 
 RUN mkdir "%INSTALL%"
 
+# Prepare application for waiting for java processes when the agent is started.
 COPY Waiter/src/Wait/bin/Release/netcoreapp1.0 $WAITER
 COPY downloadJre.ps1 $INSTALL
 COPY runAgent.ps1 $INSTALL
 
+# Move to install directory
 WORKDIR $INSTALL
 
 # Downloads dependencies
