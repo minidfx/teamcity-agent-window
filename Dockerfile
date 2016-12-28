@@ -1,4 +1,4 @@
-FROM microsoft/dotnet-framework:4.6.2
+FROM microsoft/windowsservercore
 
 MAINTAINER Burgy Benjamin <minidfx@gmail.com>
 
