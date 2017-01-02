@@ -24,7 +24,7 @@ RUN powershell -NoProfile -Command ./downloadJre.ps1 "http://download.oracle.com
                                    Invoke-WebRequest "https://download.microsoft.com/download/1/4/1/141760B3-805B-4583-B17C-8C5BC5A876AB/Installers/dotnet-dev-win-x64.1.0.0-preview2-1-003177.exe" -OutFile "dotnetcore.exe"; \
                                    Expand-Archive buildAgent.zip -DestinationPath $Env:BUILDAGENT
 
-# Install 7z for extracting java
+# Install 7z for extracting java and perhaps useful in any teamcity steps.
 RUN msiexec /i 7z.msi /qn /quiet /norestart && \
     "%ProgramFiles%/7-Zip/7z.exe" e jre.tar.gz && \
     "%ProgramFiles%/7-Zip/7z.exe" x jre.tar && \
