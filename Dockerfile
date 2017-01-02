@@ -12,7 +12,7 @@ RUN mkdir "%INSTALL%"
 # Prepare application for waiting for java processes when the agent is started.
 COPY Waiter/src/Wait/bin/Release/netcoreapp1.0 $WAITER
 COPY downloadJre.ps1 $INSTALL
-COPY runAgent.ps1 $INSTALL
+COPY runAgent.ps1 $WAITER
 
 # Move to install directory
 WORKDIR $INSTALL
@@ -44,4 +44,9 @@ VOLUME $BUILDAGENT/logs
 EXPOSE 9090
 
 # Run the small application for waiting for any java processes.
-CMD powershell -File "%INSTALL%/runAgent.ps1"
+CMD powershell -File "%WAITER%/runAgent.ps1"
+
+WORKDIR $BUILDAGENT
+
+# Clean up
+RUN powershell -NoProfile -Command Remove-Item $Env:INSTALL -Recurse -Force
