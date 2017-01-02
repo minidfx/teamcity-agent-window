@@ -41,12 +41,12 @@ RUN powershell -NoProfile -Command "New-Item $Env:BUILDAGENT/work -ItemType dire
 VOLUME $BUILDAGENT/conf
 VOLUME $BUILDAGENT/logs
 
-EXPOSE 9090
-
-# Run the small application for waiting for any java processes.
-CMD powershell -File "%WAITER%/runAgent.ps1"
-
 WORKDIR $BUILDAGENT
 
 # Clean up
 RUN powershell -NoProfile -Command Remove-Item $Env:INSTALL -Recurse -Force
+
+EXPOSE 9090
+
+# Run the small application for waiting for any java processes.
+CMD powershell -File "%WAITER%/runAgent.ps1"
