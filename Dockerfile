@@ -1,6 +1,6 @@
 FROM microsoft/windowsservercore
 
-MAINTAINER Burgy Benjamin <minidfx@gmail.com>
+MAINTAINER Burgy Benjamin <minidfx@gmail.com> & Romero Daniel <daniel.romero@baseclass.ch>
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
