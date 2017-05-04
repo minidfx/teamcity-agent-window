@@ -1,5 +1,3 @@
-param()
-
 # Avoid to continue if an error occurred
 trap {
     Write-Error $_
@@ -13,6 +11,10 @@ if($configFiles.Length -lt 1)
     Copy-Item $Env:BUILDAGENT/conf.bak/* $Env:BUILDAGENT/conf
 }
 
-& "$Env:BUILDAGENT/bin/agent.bat" start
+& "$Env:BUILDAGENT/bin/agent.bat" @("start")
 
-& dotnet exec "$Env:WAITER/Wait.dll" "$Env:BUILDAGENT/bin/agent.bat" stop
+# Wait for the others java processes created by the batch script.
+while ($true) {
+    Wait-Process -Name "java"   
+    Start-Sleep 2
+}
