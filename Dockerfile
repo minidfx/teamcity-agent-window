@@ -2,7 +2,7 @@ FROM microsoft/windowsservercore
 
 MAINTAINER Burgy Benjamin <minidfx@gmail.com> & Romero Daniel <daniel.romero@baseclass.ch>
 
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
 
 ENV BUILDAGENT "C:/buildAgent"
 ENV INSTALL "C:/Install"
